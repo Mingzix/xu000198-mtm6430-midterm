@@ -1,13 +1,10 @@
 <template>
+  <!--1{{index}}-{{todo}}-->
+  <!--2-->
+  <!--<li v-for="todo in todos">{{todo}}</li>-->
+  <!--3 <li>Walk the Dogs</li> <li>Walk the Dogs</li><li>Walk the Dogs</li>-->
   <ul>
-    <!--1   {{index}}-{{todo}}-->
-    <li v-for="(todo,index) in todos" :key="index" @click="todoDone(index)">{{todo}}</li>
-    <!---2-->
-    <!--<li v-for="todo in todos">{{todo}}</li>-->
-    <!----3
-    <li>Walk the Dogs</li>
-    <li>Walk the Dogs</li>
-    <li>Walk the Dogs</li>--->
+    <li v-for="(todo, index) in todos" :key="index" @click="todoDone(index)">{{ todo }}</li>
   </ul>
 </template>
 <script>

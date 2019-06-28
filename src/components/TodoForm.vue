@@ -31,7 +31,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 input {
   min-margin: 200px;
   padding: 10px 20px;

@@ -8,7 +8,7 @@
      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
       -->
-      <router-link :to="{ name: 'todo-list'}">To do list</router-link>
+      <router-link :to="{ name: 'todo-list'}">Todo list</router-link>
     </div>
     <router-view/>
   </div>
