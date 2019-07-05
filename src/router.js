@@ -2,7 +2,8 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import About from "./views/About.vue";
-import Todolist from "./views/Todolist.vue";
+import Contact from "./views/Contact.vue";
+import Testmonials from "./views/Testmonials.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -32,10 +33,16 @@ export default new Router({
         name: "about"
       }
     },
+
     {
-      path: "/todolist",
-      name: "todo-list",
-      component: Todolist
+      path: "/testmonials",
+      name: "testmonials",
+      component: Testmonials
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      component: Contact
     }
   ]
 });
