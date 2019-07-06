@@ -2,7 +2,8 @@
   <div id="testmonials">
     <h1>Testmonials</h1>
     <UserTestmonials/>
-    <el-card id="form">
+    <TestmonialForm @addList="addList"/>
+    <!--- <el-card id="form">
       <el-form ref="form" :model="form" :rules="rules" label-width="120px">
         <el-form-item label="Name" prop="name" required>
           <el-input type="text" v-model="form.name" placeholder="Your Name"></el-input>
@@ -24,88 +25,52 @@
         </el-form-item>
       </el-form>
     </el-card>
+    --->
   </div>
 </template>
 <script>
 import UserTestmonials from "@/components/UserTestmonials.vue";
+import TestmonialForm from "@/components/TestmonialForm.vue";
+import axios from "axios";
+
 export default {
   name: "testmonials",
   components: {
     //tell we want to use and display Todo tag
-    UserTestmonials
+    UserTestmonials,
+    TestmonialForm
   },
-  data: function() {
+  data() {
     return {
-      form: {
-        name: "",
-        title: "",
-        comment: ""
-      },
-      rules: {
-        name: [
-          {
-            required: true,
-            message: "Please input your Name",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be 1 to 50",
-            trigger: "blur"
-          }
-        ],
-        title: [
-          {
-            required: true,
-            message: "Please input Your Position Title",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be 1 to 50",
-            trigger: "blur"
-          }
-        ],
-        comment: [
-          {
-            required: true,
-            message: "Please input the comment",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 120,
-            message: "Length should be less than 120",
-            trigger: "blur"
-          }
-        ]
-      }
+      formList: {}
+      //---default todolist statement, can be todoList: ["my first to do."]
     };
   },
   methods: {
-    submitForm(form) {
-      this.$refs[form].validate(valid => {
-        if (valid) {
-          // alert("submit!");
-          alert("submit!");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+    addList(formData) {
+      //this.formList.push(formData);
     }
+  },
+  created() {
+    // here we are making a GET request using AXIOS to get the data
+    axios
+      .get("https://mingzi-mtm6430-midterm.firebaseio.com//data.json")
+      .then(response => {
+        // console.log(response);
+        // console.log(response.data);
+        // Checking if the response has some data
+        if (response.data) {
+          this.formList = response.data;
+        }
+      })
+      .catch(error => {
+        console.log("There was an error in getting data: " + error.response);
+      });
   }
 };
 </script>
 
 <style>
-#form {
-  width: 60%;
-  margin: 40px auto;
-  padding: 20px 60px 0 0;
-}
 .row {
   display: flex;
   justify-content: center;
