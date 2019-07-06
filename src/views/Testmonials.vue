@@ -3,29 +3,6 @@
     <h1>Testmonials</h1>
     <UserTestmonials/>
     <TestmonialForm @addList="addList"/>
-    <!--- <el-card id="form">
-      <el-form ref="form" :model="form" :rules="rules" label-width="120px">
-        <el-form-item label="Name" prop="name" required>
-          <el-input type="text" v-model="form.name" placeholder="Your Name"></el-input>
-        </el-form-item>
-        <el-form-item label="Title" prop="title" required>
-          <el-input type="text" v-model="form.title" placeholder="Your Position title"></el-input>
-        </el-form-item>
-
-        <el-form-item label="Comment" required>
-          <el-input
-            type="textarea"
-            v-model="form.comment"
-            laceholder="Your Comments"
-            prop="comment"
-          ></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="submitForm('form')">Submit</el-button>
-        </el-form-item>
-      </el-form>
-    </el-card>
-    --->
   </div>
 </template>
 <script>
